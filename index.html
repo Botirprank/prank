@@ -3,19 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diqqat! Qarzingiz bor!</title>
+    <title>Ogohlantirish!</title>
+    <style>
+        body {
+            background-color: black;
+            color: red;
+            text-align: center;
+            font-size: 24px;
+        }
+        #warning {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            color: red;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            font-weight: bold;
+            z-index: 9999;
+        }
+    </style>
     <script>
-        window.onload = function() {
-            alert("⚠️ Diqqat! Sizning katta qarzingiz bor. Zudlik bilan to‘lov qiling!");
-            navigator.vibrate([500, 200, 500]); // Telefon titraydi
-            document.getElementById("audio").play(); // Ovozni avtomatik ijro etish
-        };
+        function showWarning() {
+            let warningDiv = document.createElement("div");
+            warningDiv.id = "warning";
+            warningDiv.innerHTML = "‼️ OG'OHLANTIRISH! ‼️ <br> Sizda katta qarz mavjud! <br> <br> <span style='color:white;'>To'lovni amalga oshiring yoki sizga jiddiy choralar ko'riladi!</span>";
+            document.body.appendChild(warningDiv);
+
+            // Orqa fonda tovush chiqarish
+            let audio = new Audio("https://www.myinstants.com/media/sounds/error.mp3");
+            audio.loop = true;
+            audio.play();
+
+            // Har 3 sekundda yana alert chiqsin
+            setInterval(() => {
+                alert("‼️ OG'OHLANTIRISH! ‼️ Sizda katta qarz mavjud! To'lovni amalga oshiring!");
+            }, 3000);
+        }
     </script>
 </head>
-<body>
-    <h1>Ma’lumotlar yuklanmoqda...</h1>
-    <audio id="audio" autoplay>
-        <source src="https://www.myinstants.com/media/sounds/trollolol.mp3" type="audio/mpeg">
-    </audio>
+<body onload="showWarning()">
+    <h1>Qarzini to‘lang!</h1>
 </body>
 </html>
