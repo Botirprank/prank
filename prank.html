@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diqqat! Qarzingiz bor!</title>
+    <script>
+        window.onload = function() {
+            alert("⚠️ Diqqat! Sizning katta qarzingiz bor. Zudlik bilan to‘lov qiling!");
+            navigator.vibrate([500, 200, 500]); // Telefon titraydi
+            document.getElementById("audio").play(); // Ovozni avtomatik ijro etish
+        };
+    </script>
+</head>
+<body>
+    <h1>Ma’lumotlar yuklanmoqda...</h1>
+    <audio id="audio" autoplay>
+        <source src="https://www.myinstants.com/media/sounds/trollolol.mp3" type="audio/mpeg">
+    </audio>
+</body>
+</html>
